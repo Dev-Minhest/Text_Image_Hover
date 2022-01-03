@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text" data-src="images/img-1.jpg">Burger</h1>
+        <h1 class="text" data-src="images/img-2.jpg">Pizza</h1>
+        <h1 class="text" data-src="images/img-3.jpg">Sandwich</h1>
+        <h1 class="text" data-src="images/img-4.jpg">Noodles</h1>
+        <h1 class="text" data-src="images/img-5.jpg">Ice-cream</h1>
+        <h1 class="text" data-src="images/img-6.jpg">Cake</h1>
+        <img src="images/img-1.jpg" class="hover-img">
+    </div>
+</body>
+<script>
+    let container = document.querySelector('.container');
+    let img = document.querySelector('.hover-img');
+
+    document.body.onmousemove = (e) => {
+        let x = e.pageX;
+        let y = e.pageY;
+        img.style.top = y + 'px';
+        img.style.left = x + 'px';
+    }
+
+    container.querySelectorAll('.text').forEach(text => {
+        text.onmousemove = () => {
+            img.src = text.getAttribute('data-src');
+        }
+    });
+</script>
+
+</html>
